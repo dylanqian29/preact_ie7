@@ -1,17 +1,11 @@
 import { h, Component } from 'preact';
 
 export default class TodoList extends Component {
-  constructor() {
-    super();
-    this.state = { todos: [], text: '' };
-    this.setText = this.setText.bind(this)
-    this.addTodo = this.addTodo.bind(this)
-  }
-
-  setText(e) {
+  state = { todos: [], text: '' };
+  setText = e => {
       this.setState({ text: e.target.value });
   };
-  addTodo() {
+  addTodo = () => {
       let { todos, text } = this.state;
       todos = todos.concat({ text });
       this.setState({ todos, text: '' });
